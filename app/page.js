@@ -4,6 +4,9 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { css } from '@emotion/react';
+import Image from 'next/image';
+import WalmartLogo from "../public/walmart.png";
+import Link from 'next/link';
 
 const styles = {
   bgNavyBlue: css`
@@ -19,9 +22,9 @@ const user = {
 }
 const navigation = [
   { name: 'Home', href: '#', current: true },
-  { name: 'Find Salesman', href: '#', current: false },
-  { name: 'Get Info', href: '#', current: false },
-  { name: 'Shortest Queue', href: '#', current: false },
+  { name: 'Get Info', href: '/info', current: false },
+  { name: 'Get Assistance', href: '/help', current: false },
+  { name: 'Shortest Queue', href: '/queue', current: false },
 
 ]
 const userNavigation = [
@@ -190,13 +193,46 @@ export default function Example() {
           )}
         </Disclosure>
 
-        <div className="flex items-center justify-center h-screen">
-  <header className="bg-white shadow">
-    <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-      <h1 className="text-3xl font-bold tracking-tight text-gray-900">Welcome to Walmart!</h1>
+    <div className="flex items-center justify-center h-screen">
+
+
+      <header>
+          <h1 className="-mt-40 pt-0 text-3xl font-bold tracking-tight text-gray-900">Welcome to Walmart!</h1>
+            
+            <Link href='/info'>
+              <button class="mx-14 mt-16 group relative h-12 w-48 overflow-hidden rounded-2xl bg-green-500 text-lg font-bold text-white">
+                Get Info
+                <div class="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-300 group-hover:scale-100 group-hover:bg-white/30"></div>
+              </button>
+            </Link>
+            
+            <br />
+            
+            <Link href='/help'>
+              <button class="mx-14 mt-10 group relative h-12 w-48 overflow-hidden rounded-2xl bg-green-500 text-lg font-bold text-white">
+                Get Assistance
+                <div class="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-300 group-hover:scale-100 group-hover:bg-white/30"></div>
+              </button>
+            </Link>
+
+            <br />
+            
+            <Link href='/queue'>
+              <button class="mx-14 mt-10 group relative h-12 w-48 overflow-hidden rounded-2xl bg-green-500 text-lg font-bold text-white">
+                Shortest Queue
+                <div class="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-300 group-hover:scale-100 group-hover:bg-white/30"></div>
+              </button>
+            </Link>
+            
+
+            <Image class="mx-32 mt-20" 
+              src={WalmartLogo} width={60} height={60} />
+
+            
+      </header>  
+
+
     </div>
-  </header>
-</div>
 
         <main>
           <div className="min-h-screen">
